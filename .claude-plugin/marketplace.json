@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "prog-ambiente",
+  "description": "Ambiente de trabalho com o Claude Code no Antigravity, do jeito do Arthur Prog: regras de trabalho em português e Antigravity configurado com a extensão do Claude.",
+  "owner": {
+    "name": "Arthur Prog",
+    "url": "https://github.com/ArthurPr0g"
+  },
+  "plugins": [
+    {
+      "name": "ambiente-antigravity",
+      "description": "Configura o ambiente: regras de trabalho do Claude (português, sem chute, backup local, deploy até o fim) e o Antigravity com a extensão do Claude Code, configurações e extensões padrão.",
+      "source": "./plugins/ambiente-antigravity",
+      "category": "produtividade",
+      "version": "1.0.0"
+    }
+  ]
+}

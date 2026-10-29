@@ -1,0 +1,6 @@
+anthropic.claude-code
+ms-ceintl.vscode-language-pack-pt-br
+github.vscode-github-actions
+ms-python.python
+ms-python.debugpy
+ms-vscode.powershell
