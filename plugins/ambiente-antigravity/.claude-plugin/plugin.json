@@ -1,6 +1,6 @@
 {
   "name": "ambiente-antigravity",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Configura o ambiente de trabalho com o Claude Code: regras de trabalho em português (sem chute, backup local, facilitar passos manuais, deploy até o fim) e o Antigravity com a extensão do Claude, configurações e extensões padrão.",
   "author": {
     "name": "Arthur Prog",

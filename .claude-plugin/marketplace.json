@@ -12,7 +12,7 @@
       "description": "Configura o ambiente: regras de trabalho do Claude (português, sem chute, backup local, deploy até o fim) e o Antigravity com a extensão do Claude Code, configurações e extensões padrão.",
       "source": "./plugins/ambiente-antigravity",
       "category": "produtividade",
-      "version": "1.1.0"
+      "version": "1.2.0"
     }
   ]
 }

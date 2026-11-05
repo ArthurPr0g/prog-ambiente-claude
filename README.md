@@ -27,6 +27,15 @@ Depois peça: **"configura meu ambiente"**.
 
 Requisitos: Windows 10/11 e o Claude Code. Se o Antigravity ainda não estiver instalado, o Claude pergunta antes e instala pelo winget.
 
+## 1 ou 2 contas do Claude
+O Claude pergunta no começo. Escolha:
+- **1 conta**: tudo na sua conta. É o caso da maioria.
+- **2 contas** (ex.: pessoal + trabalho): você diz o nome da 2ª conta e quais pastas de projeto abrem com ela. Essas pastas abrem num **perfil próprio do Antigravity** que usa a 2ª conta; as outras continuam na principal. No terminal, ganha os comandos `claude-<nome>` (Claude na 2ª conta) e `claude-contas` (mostra o login das duas).
+
+Saiu da empresa e quer voltar a 1 conta? Peça "configura meu ambiente com 1 conta". Nada é apagado; depois, se quiser, exclua o perfil da 2ª conta em engrenagem > Perfis.
+
+Para rodar o script direto, sem o Claude: `configurar.ps1 -Contas 2 -NomeConta2 "Trabalho" -PastaConta2 "C:\Projetos\Empresa"`.
+
 ---
 
 ## Para o Claude: como instalar este plugin
