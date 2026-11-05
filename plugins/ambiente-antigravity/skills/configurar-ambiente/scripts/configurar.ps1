@@ -96,6 +96,28 @@ if (-not $SoRegras) {
     }
 }
 
+# ---------- 3) Login da pasta padrão (microfone e Chrome) ----------
+# A extensão do Claude no Antigravity/VS Code só mostra o botão de MICROFONE e só liga o CHROME (@browser)
+# se achar login em ~\.claude. Ela lê essa pasta mesmo quando o chat usa outra (CLAUDE_CONFIG_DIR).
+# Sem login ali, as duas funções somem sem nenhum erro. Aqui só conferimos; nada é alterado.
+Passo 'Login do Claude (microfone e Chrome)'
+$ErrorActionPreference = 'Continue'
+$claude = (Get-Command claude -ErrorAction SilentlyContinue).Source
+if (-not $claude) {
+    $claude = (Get-ChildItem "$env:USERPROFILE\.antigravity-ide\extensions", "$env:USERPROFILE\.antigravity\extensions", "$env:USERPROFILE\.vscode\extensions" -Recurse -Filter claude.exe -ErrorAction SilentlyContinue |
+        Where-Object FullName -like '*anthropic.claude-code*' | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName
+}
+if ($claude) {
+    $antes = $env:CLAUDE_CONFIG_DIR
+    Remove-Item Env:CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue
+    try { $st = (& $claude auth status --json 2>$null) | Out-String | ConvertFrom-Json } catch { $st = $null }
+    if ($antes) { $env:CLAUDE_CONFIG_DIR = $antes }
+    if ($st -and $st.loggedIn) { Write-Host "OK: pasta padrão logada ($($st.email))" }
+    elseif ($st) {
+        $pendencias.Add('Entre na sua conta do Claude na pasta padrão (sem isso o microfone e o Chrome somem do painel): num PowerShell novo rode  claude auth login  e depois, no Antigravity, Ctrl+Shift+P > "Reload Window".')
+    } else { Write-Host 'Não deu para conferir o login (versão antiga do Claude Code?). Se o microfone ou o Chrome sumirem, rode  claude auth login .' }
+} else { Write-Host 'Claude Code não encontrado no PATH: o login será feito pelo painel do Claude no Antigravity.' }
+
 Write-Host "`nPronto." -ForegroundColor Green
 if ($pendencias.Count) {
     Write-Host 'PENDENTE (passos seus):' -ForegroundColor Yellow

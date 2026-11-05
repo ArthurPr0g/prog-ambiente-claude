@@ -4,6 +4,9 @@ O jeito de trabalhar do Arthur Prog com o **Claude Code dentro do Antigravity**,
 
 - **Regras de trabalho do Claude**: responde em português, não chuta, mantém backup local, facilita os passos manuais e leva cada alteração de projeto até o fim (build → commit → push → deploy conferido).
 - **Antigravity pronto**: extensão do Claude Code no painel, configurações e extensões padrão (português, Python, PowerShell, GitHub Actions).
+- **Microfone e Chrome funcionando**: confere o login de que o botão de ditado e o Chrome (`@browser`) dependem e avisa se faltar.
+
+Leva **5 a 10 minutos** (uns 15 se o Antigravity ainda não estiver instalado). O seu trabalho é só entrar na sua conta Google e na do Claude.
 
 Nada é apagado: as regras entram num bloco marcado do seu `CLAUDE.md`, as configurações do Antigravity são mescladas com as suas, e tudo que muda ganha uma cópia de segurança.
 
@@ -52,6 +55,9 @@ Siga na ordem. Fale com a pessoa em português, de forma simples, e não faça l
 | Regras de trabalho | `~\.claude\CLAUDE.md`, entre `<!-- >>> ambiente-antigravity >>> -->` e `<!-- <<< ambiente-antigravity <<< -->` |
 | Configurações do Antigravity | `%APPDATA%\Antigravity IDE\User\settings.json` (só as chaves do pacote) |
 | Cópias de segurança | ao lado de cada arquivo, como `*.antes-ambiente-<data>` |
+
+## Microfone ou Chrome sumiram
+Se o chat do Claude funciona mas o botão de microfone ou o Chrome (`@browser`) sumiram, quase sempre é falta de login na pasta padrão do Claude (`~\.claude`), que é onde a extensão procura. Num PowerShell novo, rode `claude auth login`, entre na sua conta e, no Antigravity, use Ctrl+Shift+P → **Reload Window**. Ou peça ao Claude "configura meu ambiente", que ele confere isso.
 
 **Desfazer:** apague o bloco do `CLAUDE.md` (ou volte a cópia de segurança) e rode `/plugin uninstall ambiente-antigravity@prog-ambiente`.
 

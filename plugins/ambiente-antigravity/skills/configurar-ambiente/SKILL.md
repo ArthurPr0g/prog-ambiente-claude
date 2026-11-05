@@ -23,6 +23,7 @@ O script faz tudo; o seu papel é conduzir a pessoa, pedir o que só ela pode de
 5. **Entregue as pendências** que o script listou como passos numerados e curtos (login Google no Antigravity, login no Claude pelo painel, reabrir o Antigravity). Não faça login nem aceite termos por ela.
 
 ## Se der errado
+- **Microfone ou Chrome (`@browser`) sumiram do painel do Claude**, mas o chat funciona: a extensão lê o login de `~\.claude`, mesmo que o chat use outra pasta (`CLAUDE_CONFIG_DIR`). Confira com `claude auth status --json` **sem** `CLAUDE_CONFIG_DIR` (`loggedIn` precisa ser `true`). Se for `false`, peça à pessoa para rodar `claude auth login` num PowerShell novo e dar "Reload Window" no Antigravity. Nunca copie `.credentials.json` de uma pasta para outra: o token de renovação muda e derruba a outra.
 - `settings.json` com comentários: o script não mexe nele. Junte à mão as chaves de `antigravity/settings.json` (desta skill), mantendo as dela, depois de copiar o arquivo para `settings.json.antes-ambiente-<data>`.
 - Extensão que não instalou: costuma ser falta de internet ou o marketplace fora do ar; tente de novo uma vez e, se falhar, deixe como pendência.
 - Mac ou Linux: o script é só para Windows. Faça os mesmos passos à mão: o CLAUDE.md fica em `~/.claude/CLAUDE.md` e as configurações do Antigravity em `~/Library/Application Support/Antigravity IDE/User/settings.json` (Mac). Confirme os caminhos antes de escrever.
