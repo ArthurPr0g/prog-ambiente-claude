@@ -1,0 +1,13 @@
+{
+  "name": "simulador-iphone",
+  "version": "1.0.0",
+  "description": "iPhone simulado (WebKit) para testar sites",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "1.56.1"
+  },
+  "private": true
+}
